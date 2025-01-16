@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.view_form_gusto_contratos_creation">
+      
+      <field name="name">contratos</field>
+      <field name="model">gusto.contratos</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <field name="participante_id" readonly="1"/>
+                  <field name="participante_gusto" readonly="1"/>
+                  <field name="provincia_gusto" readonly="1"/>
+                  <field name="empresa"/>
+                  <field name="modalidad"/>
+                  <field name='tipo_contratoss'/>
+                  <field name="jornada"/>
+                  <field name="porcentaje_jornada"/>
+                  <field name="fecha_inicio"/>
+                  <field name="fecha_fin"/>
+                </group>
+                <group>
+                  <field name="medio"/>
+                  <field name='partner_integrador'/>
+                  <field name="observacion"/>
+                  <field name="archivo" filename='archivo_nombre' widget="binary"/>
+                  <field name="archivo_nombre" invisible='1'/>
+                </group>
+             </group>
+              
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+  </data>
+</odoo>

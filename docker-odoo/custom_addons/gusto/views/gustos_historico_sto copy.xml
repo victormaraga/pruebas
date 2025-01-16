@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+
+
+    <record model="ir.ui.view" id="gusto.historico_sto_list">
+      <field name="name">gusto</field>
+      <field name="model">gusto.historico.sto</field>
+      <field name="arch" type="xml">
+        
+                
+        <tree>
+
+        <field name='name'/>
+        <field name='provincia'/>
+        <field name='participante'/>
+        <field name='pt_nombre'/>
+        <field name='pt_apellido1'/>
+        <field name='pt_apellido2'/>
+        <field name='unidad'/>
+        <field name='alta_sto'/>
+        <field name='baja_sto'/>
+        <field name='colectivo'/>
+        <field name='inicio_atencion'/>
+        <field name='fin_atencion'/>
+        <field name='h_orienta'/>
+        <field name='h_forma'/>
+        <field name='recibi'/>
+        <field name='inicio_inserccion'/>
+        <field name='fin_inserccion'/>
+        <field name='h_fase_inserccion'/>
+        <field name='fecha_valor'/>
+        
+
+          
+          
+        </tree>
+        
+        
+       
+      </field>
+    </record>
+
+    
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_historico_sto">
+      <field name="name">Historico STO</field>
+      <field name="res_model">gusto.historico.sto</field>
+      <field name="view_mode">tree</field>
+      
+    </record>
+
+
+
+
+
+  </data>
+</odoo>

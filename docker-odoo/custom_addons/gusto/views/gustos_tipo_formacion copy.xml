@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.tipo_formacion_list">
+      <field name="name">Tipo formacion</field>
+      <field name="model">gusto.tipo.formacion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+         
+
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.tipo_formacion_form">
+      <field name="name">Tipo formacion</field>
+      <field name="model">gusto.tipo.formacion</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                  <field name="name"/>
+                  
+              </group>
+              
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_tipo_formacion">
+      <field name="name">Tipo formacion</field>
+      <field name="res_model">gusto.tipo.formacion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

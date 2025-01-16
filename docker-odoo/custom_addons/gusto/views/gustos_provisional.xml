@@ -1,0 +1,24 @@
+<odoo>
+<data>
+
+<!-- Acción para migrar las relaciones en gusto.gusto -->
+<record id="action_migrate_to_one2many_gusto" model="ir.actions.server">
+    <field name="name">Migrar Talleres Gusto</field>
+    <field name="model_id" ref="model_gusto_gusto"/>
+    <field name="binding_model_id" ref="model_gusto_gusto"/>
+    <field name="code">
+        action = env['gusto.gusto'].migrate_to_one2many_gusto()
+    </field>
+</record>
+
+<!-- Acción para migrar las relaciones en gusto.talleres -->
+<record id="action_migrate_to_one2many_talleres" model="ir.actions.server">
+    <field name="name">Migrar Participantes Talleres</field>
+    <field name="model_id" ref="model_gusto_talleres"/>
+    <field name="binding_model_id" ref="model_gusto_talleres"/>
+    <field name="code">
+        action = env['gusto.talleres'].migrate_to_one2many_talleres()
+    </field>
+</record>
+</data>
+</odoo>

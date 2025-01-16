@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_gusto_contratos_pivot" model="ir.ui.view">
+            <field name="name">gusto.contratos.pivot</field>
+            <field name="model">gusto.contratos</field>
+            <field name="arch" type="xml">
+                <pivot string="Contratos - Vista Pivot">
+
+                    <field name="provincia_participante" type="row"/>
+                    <field name="diascomputable" type="measure" sum="1"/>
+                    <field name="peonadasc" type="measure" sum="1"/>
+                </pivot>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="gusto.action_contratos_sum">
+            <field name="name">Contratos de participantes</field>
+            <field name="res_model">gusto.contratos</field>
+            <field name="view_mode">pivot</field>
+           
+        </record>
+    </data>
+</odoo>

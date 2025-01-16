@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+
+<record id="view_gusto_tipo_tag_tree" model="ir.ui.view">
+    <field name="name">gusto.tipo.tag.tree</field>
+    <field name="model">gusto.tipo.tag</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="categoria_id"/>
+        </tree>
+    </field>
+</record>
+
+   <record model="ir.actions.act_window" id="gusto.action_tipo_tag">
+      <field name="name">Categoria Tag</field>
+      <field name="res_model">gusto.tipo.tag</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

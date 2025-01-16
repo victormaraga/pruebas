@@ -1,0 +1,147 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.talleres_list">
+      <field name="name">Talleres</field>
+      <field name="model">gusto.talleres</field>
+      <field name="arch" type="xml">
+        <tree create="True">
+          <field name="id" readonly="1"/>
+          <field name="id_sto" />
+          <field name="country_id" invisible="1" />
+  
+          <field name="provincia_id" />
+          <field name="name" />
+          <field name="tipo" readonly="1" />
+          <!--
+          <field name="tipo_ori"/>
+          -->
+          <field name="fec_inicio"/>
+          <field name="fec_fin"/>
+          <field name="horas"/>
+          <field name="turno"/>
+          <field name="aula"/>
+          <field name="pt_nombre" optional="hide"/>
+          <field name="pt_apellido1" optional="hide"/>
+          <field name="pt_apellido2" optional="hide"/>
+          <field name="unidad" />
+          
+          <field name="estado"/>
+         
+
+         
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.talleres_form">
+      <field name="name">Taller</field>
+      <field name="model">gusto.talleres</field>
+      <field name="arch" type="xml">
+        <form create="false">
+            <sheet>
+              <header>
+                <!--
+                      <button string="Prueba"  class="btn-primary"/>
+                -->
+              </header>
+                
+              <group>
+                  <field name="id" readonly="1"/>
+                  <field name="id_sto" readonly="1"/>
+                  <field name="country_id" invisible="1" />
+                  <field name="provincia_id"/>
+                  <field name="name" readonly="1"/>
+                  <field name="tipo" readonly="1" />
+                  
+                  <field name="tipo_gusto" domain="[('categoria', '!=', 'administracion')]"/>
+                  
+                  <field name="fec_inicio"/>
+                  <field name="fec_fin"/>
+                  
+                  <field name="horas"/>
+                  
+                  <field name="turno"/>
+                  <field name="aula"/>
+              </group>
+              <group>
+                  <!--
+                  <field name="pt_nombre" readonly="1"/>
+                  <field name="pt_apellido1" readonly="1"/>
+                  <field name="pt_apellido2" readonly="1"/>
+                  <field name="unidad" readonly="1"/>
+                  
+                  <field name="tipo"/>
+                  -->
+                  <field name="estado" readonly="1"/>
+              </group>
+              <notebook colspan="1">
+                
+                <page string="Participantes" name="Participante">
+                    <field name="participantes_talleres_ids">
+                        <tree editable="bottom" create='True'>
+                            <field name="name"/>
+                            <field name="participante" />
+                            <!--
+                            <field name="docaem_ids">
+                              <tree editable="bottom" create="True">
+                                  <field name="tipo_doc_id" domain="[('categoria', '!=', 'administracion')]"/>
+                                  <field name="fecha"/>
+                                  <field name="grupal" default="0" invisible="1"/>
+                                  <field name="gusto_id" default="gusto.id" invisible="1"/>
+                                  <field name="archivo" filename='name' widget="binary"/>
+                                  <field name="name" invisible='1'/>
+                                  <button name="action_open_file_viewer" string="Ver Archivo" type="object" class="btn-primary"/>
+                                
+                              S</tree>
+                            </field>
+                            -->
+                        
+                         </tree>
+                        </field>
+                   
+                </page>
+                <page string="Documentacion" name="documentacion">
+
+                    <field name="docaem_ids">
+                            <tree editable="bottom" create="True">
+                                <field name="gusto_id" default="gusto.id" string='DNI' context="{'show_field': ['gusto.name', 'gusto.participante']}" />
+                                <field name="participante_gusto" />
+                                <field name="tipo_doc_id" domain="[('categoria', '!=', 'administracion')]"/>
+                                <field name="fecha"/>
+                                <field name="taller_id" default="taller.id" invisible="1"/>
+                                <field name="horas" default="taller_id.horas"/>
+                                <field name="grupal" default="0" invisible="1"/>
+                                
+                                <field name="archivo" filename='name' widget="binary"/>
+                                <field name="name" invisible='1'/>
+                                
+                                <!--
+                                <field name="archivo_nombre" string="Nombre del Archivo"/>
+                                <field name="archivo" string="Ruta del Archivo"/>
+                                 -->
+                                <button name="action_open_file_viewer" string="Ver Archivo" type="object" class="btn-primary"/>
+                               
+                            </tree>
+                        </field>
+                </page>
+                
+              </notebook>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_talleres">
+      <field name="name">Talleres</field>
+      <field name="res_model">gusto.talleres</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

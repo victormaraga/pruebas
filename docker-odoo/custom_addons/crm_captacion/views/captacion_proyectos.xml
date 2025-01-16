@@ -1,0 +1,43 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="captacion_proyectos_list">
+      <field name="name">Listado Proyectos</field>
+      <field name="model">captacion.experiencialaboral</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="denominacion"/>
+         
+          <field name="company_ids"/>
+         
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="captacion_proyectos_form">
+      <field name="name">Formulario Proyectos</field>
+      <field name="model">captacion.proyectos</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                  <field name="denominacion"/>
+                  
+                  <field name="company_ids"/>
+                  
+                  
+              </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="captacion_action_proyectos">
+      <field name="name">Proyectos</field>
+      <field name="res_model">captacion.proyectos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

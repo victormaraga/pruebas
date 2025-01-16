@@ -1,0 +1,122 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.contratos_informe">
+      <field name="name">Prevision cumplimientos de Objetivos</field>
+      <field name="model">gusto.contratos</field>
+      <field name="arch" type="xml">
+      
+        <tree create="false" default_order='provincia_gusto, participante_gusto' > 
+
+              <field name="provincia_gusto" group="1"/>
+              <field name="participante_id" group="1"/>
+              <field name="participante_gusto" />
+              <field name="empresa" />
+              <field name="modalidad" />
+              <field name='tipo_contratoss' />
+              
+              <field name="jornada"/>
+              <field name="porcentaje_jornada" optional="hide"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>     
+              <field name="diastrabajado"/>
+              <field name="diascomputable_gusto" />
+              <field name="fecha_objetivo" />
+              <field name="medio"/>
+              <field name='partner_integrador'/>
+              <field name="observacion" /> 
+              
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.contratos_form">
+      <field name="name">contratos</field>
+      <field name="model">gusto.contratos</field>
+      <field name="arch" type="xml">
+        <form>
+
+            <sheet>
+              <group>
+                <group>
+                  <field name="participante_id"/>
+                  <field name="participante_gusto"/>
+                  <field name="provincia_gusto"/>
+                  <field name="empresa"/>
+                  <field name="modalidad"/>
+                  <field name='tipo_contratoss'/>
+
+                  <field name="jornada"/>
+                  <field name="porcentaje_jornada"/>
+                  <field name="fecha_inicio"/>
+                  <field name="fecha_fin"/>
+                </group>
+                <group>
+                  <field name='medio'/>
+                  <field name='partner_integrador'/>
+                  <field name="diastrabajado"/>
+                  <field name="diascomputable"/>
+                  <field name="observacion"/>
+                  
+                
+                </group>
+             </group>
+              <field name='archivo' filename='fichero' string='VIDA LABORAL' widget='pdf_viewer'/>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_mi_modelo_graph" model="ir.ui.view">
+        <field name="name">Prevision cumplimientos de Objetivos.graph</field>
+        <field name="model">gusto.contratos</field>
+        <field name="arch" type="xml">
+            <graph string="Cantidad de registros por mes y provincia" type="bar">
+                <field name="fecha_objetivo" type="day" />
+                <field name="provincia_gusto" />
+                <field name="id" type="measure" string="Cantidad de Registros" />
+            </graph>
+        </field>
+    </record>
+    
+     actions opening views on models 
+<!--
+<record id="view_gusto_contratos_graph" model="ir.ui.view">
+    <field name="name">gusto.contratos.graph</field>
+    <field name="model">gusto.contratos</field>
+    <field name="arch" type="xml">
+        <graph string="Contratos por Provincia y Mes" type="bar">
+            <field name="fecha_objetivo" type="date" interval="month"/>
+            <field name="provincia_gusto"/>
+            <field name="participante_gusto"/>
+            <field name="id" type="count" string="Total Registros"/>
+        </graph>
+    </field>
+</record>
+-->
+<record id="view_gusto_contratos_pivot" model="ir.ui.view">
+    <field name="name">gusto.contratos.pivot</field>
+    <field name="model">gusto.contratos</field>
+    <field name="arch" type="xml">
+        <pivot string="Contratos por Provincia y Mes">
+            <field name="fecha_objetivo" type="col" interval="month"/>
+            <field name="provincia_gusto" type="row"/>
+            <field name="id" type="count" string="Total Registros"/>
+        </pivot>
+    </field>
+</record>
+
+
+
+    <record model="ir.actions.act_window" id="gusto.action_contratos_informe">
+        <field name="name">Contratos Prevision cumplimientos de Objetivos</field>
+        <field name="res_model">gusto.contratos</field>
+        <!--
+        <field name="domain">[('fecha_fin', '=', False)]</field>
+        -->
+        <field name="view_mode">pivot,tree,form</field>
+    </record>
+  </data>
+</odoo>

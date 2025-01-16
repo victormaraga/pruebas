@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="captacion_objetivoprofesional_list">
+      <field name="name">Listado Objetivo Profesional</field>
+      <field name="model">captacion.objetivoprofesional</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="company_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="captacion_objetivoprofesional_form">
+      <field name="name">Formulario Objetivo Profesional</field>
+      <field name="model">captacion.objetivoprofesional</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                  <field name="name"/>
+                  <field name="company_ids"/>
+              </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="captacion_action_objetivoprofesional">
+      <field name="name">Objetivo Profesional</field>
+      <field name="res_model">captacion.objetivoprofesional</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

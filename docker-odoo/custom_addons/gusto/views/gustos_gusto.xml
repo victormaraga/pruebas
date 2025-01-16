@@ -1,0 +1,275 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="gusto.gusto_list">
+      <field name="name">Gestión Usuarios STO</field>
+      <field name="model">gusto.gusto</field>
+      <field name="arch" type="xml">              
+        <tree create='False'>
+          <field name="name"/>
+          <field name="provincia"/>
+          <field name="participante"/>
+          <field name="alta_sto"/>
+          <field name="baja_sto"/>
+          <field name="colectivo" optional="hide"/>
+          <field name="inicio_atencion" optional="hide"/> 
+          <field name="fin_atencion" optional="hide" />
+          <field name="h_orienta" />
+          <field name="h_forma" />
+          <field name="recibi" />
+          <field name="fase_orienta" optional="hide"/>
+          <field name="qt_insertados"  widget="boolean_button" readonly='1'/>
+          <field name="qt_prioritarios" widget="boolean_button" readonly='1' />
+          <field name="diascomputable" />
+          <field name="fecha_objetivo" />
+          <field name="pt_nombre" optional="hide" />
+          <field name="pt_apellido1" optional="hide"/>
+          <field name="pt_apellido2" optional="hide"/>
+        </tree>
+        <search>
+            
+                <field name="name"/>
+                <field name="provincia"/>
+                <field name="participante"/>
+            
+            <filter name="sevilla" 
+                    string="Sevilla" 
+                    domain="[('provincia', '=', 'SEVILLA')]" />
+        </search>
+      </field>
+    </record>
+    <record id="gusto.gusto_search" model="ir.ui.view">
+        <field name="name">gusto.gusto.search</field>
+        <field name="model">gusto.gusto</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="provincia"/>
+                <field name="participante"/>
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="gusto.gusto_form">
+      <field name="name">Gestión Usuarios STO</field>
+      <field name="model">gusto.gusto</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <div class="o_row">    
+                      <h1>
+                          <div>
+                              <field name='name' class="oe_inline" readonly='1'/><span> - </span><field name='participante' class="oe_inline" readonly='1' />
+                          </div>
+                      </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="provincia"/>
+                        <field name="municipio" string='MUNICIPIO'/>
+                        <field name="telefono" string='TELEFONO'/>
+                        <field name="correo" string='CORREO'/>
+                        <field name="colectivo" string='COLECTIVO' readonly="1"/>
+                        <field name="anos_exp" string='AÑOS EXPERIENCIA'/>
+                        <field name="observacion" string='OBSERVACIONES'/>
+                        <field name="prosp_integra_prev_id" string='INTEGRADO POR'/>
+                        <field name="est_orientacion" invisible='1'/>
+                        <field name="est_formacion" invisible='1'/>
+                    </group>
+                    <group>  
+                     <div class='col-lg-12'>
+                        <span >ACTUALIZACIÓN STO:  <field name='fecha_valor' readonly='1' style='width: 0px;font-weight: bold;padding-left:15px;'/></span>
+                     </div>   
+                        <group string='FASE DE ATENCIÓN' style='background-color:#f4f7df'>                               
+                            <field name="alta_sto" string='ALTA STO' readonly="1" attrs="{'invisible': [('est_orientacion', '=', 'finalizada'), ('est_formacion', '=', 'finalizada')]}" class="campo-verde"/> 
+                            <field name="inicio_atencion" string='INICIO F. ATENCION' readonly="1"/>
+                            <field name="h_orienta" string='H. ORIENTACION' readonly="1"/>
+                            <field name="baja_sto" string='BAJAA STO' readonly="1"/>
+                            <field name="fin_atencion" string='FIN F. ATENCION' readonly="1"/>
+                            <field name="h_forma" string='H. FORMACION' readonly="1"/> 
+                        </group> 
+                        <group string='FASE DE INSERCCIÓN'  style='background-color:#dff7ed'>
+                            <field name="inicio_inserccion" string='INICIO F. INSERCCION' readonly="1"/>   
+                            <field name="h_fase_inserccion" string='H. OI' readonly="1"/>
+                            <field name="recibi" readonly="1"/>
+                            <field name="fin_inserccion" string='FIN F. INSERCCION' readonly="1"/>
+                            <field name="dias_fase_insercion" string='DIAS F. INSERCCION' readonly="1"/>
+                        </group>
+                     </group>
+                </group>
+                  <group class="frm_horas">
+                    <group class="frm_dias_trabajados">
+                    </group>  
+                    <group class="frm_dias_trabajados">
+                        <group class="frm_dias_trabajados">
+                            <field name="h_orienta_gus"/>
+                            <field name="h_ori_ins_gus"/>
+                            <field name="h_ori_ins_gus"/>
+                            <field name="h_anexo_gus"/>
+                        </group>
+                        <group class="frm_dias_trabajados">
+                          <field name="diastrabajado" readonly="1"/>
+                          <field name="diascomputable" readonly="1"/>
+                          <field name="peonadasc" readonly="1"/>
+                          <field name="fecha_objetivo" />
+                        </group>
+                    </group>
+                </group>
+                <notebook colspan="6">
+                    <page string="Accion y Talleres" name="formaciones">
+                        <span class='etiqueta'>Acción formativa</span>
+                        <div class='frm_accion'>
+                            <field name="acciones_idsto" style="width: 100px;text-align: right;padding-right: 10px;"/>
+                            <field name="acciones_formativas_id" style="width: 100px;"/>
+                            <field name="acciones_accion" style="width: 690px;padding-right: 10px;"/>
+                            <field name="acciones_horas" style="width: 10px;"/><span style="padding-right: 10px;">h</span>
+                            <field name="acciones_fecini" style="width: 90px;"/>
+                            <field name="acciones_fecfin" style="width: 90px;"/>
+                            <field name="finaliza_accion"  />
+                            <span>FINALIZADO</span>
+                        </div>
+                        <span class='etiqueta'>Talleres</span>
+                        <div style='margin-top:4px;'>
+                            <field name="pasap" invisible="1"/>
+                            <field name="talleres_gusto_ids" readonly='1' context="{'default_gusto_id': active_id}">
+                             <tree  >
+                                <field name="gusto_id" default="gusto.id" invisible="1"/>
+                                <field name="tipo" invisible="1"/>
+                                 <field name="country_id" invisible="1"/>
+                                <field name="provincia_id" invisible="1"/>
+                                <field name="tipo_gusto"/>
+                                <field name="name"  />
+                                <field name="fec_inicio"/>
+                                <field name="fec_fin"/>
+                                <field name="horas" />      
+                            </tree>
+                            </field>
+                            
+                            <button name="action_open_create_taller" type="object" string="Crear Taller Individual" class="btn-primary"/>
+                            <!--
+                            <button name="action_open_taller_creation_form" type="object" string="Crear Taller Individual" class="btn-primary"/>
+                           
+                            <field name="talleres_gusto2_ids" readonly='1' context="{'default_gusto_id': active_id}">
+                             <tree  >
+                                <field name="gusto_id" default="gusto.id" invisible="1"/>
+                                <field name="tipo" invisible="1"/>
+                                 <field name="country_id" invisible="1"/>
+                                <field name="provincia_id" invisible="1"/>
+                                <field name="tipo_gusto"/>
+                                <field name="name"  />
+                                <field name="fec_inicio"/>
+                                <field name="fec_fin"/>
+                                <field name="horas" />      
+                            </tree>
+                            </field>
+                             -->
+                       </div>
+                    </page>
+                    <page string="Contratos" name="contratos">
+                          
+                           <field name="contratos_ids">
+                              <tree create="False" >
+                                <field name='name' readonly="1" invisible="1"/>
+                                <field name='participante_id' readonly="1" invisible="1" />
+                                <field name='empresa'/>
+                                <field name='tipo_contratoss'/>
+                                <field name='jornada'/>
+                                <field name='fecha_inicio'/>
+                                <field name='fecha_fin'/>
+                                <field name='medio'/>
+                                <field name="archivo" filename='archivo_nombre' widget="binary"/>
+                                <field name="archivo_nombre" invisible='1'/>
+                                <button name="action_open_file_viewer" string="Vida Laboral" type="object" class="btn-primary"/>
+                              </tree>
+                          </field>
+                          <button name="action_open_contrato_creation_form" type="object" string="Crear Contrato" class="btn-primary"/>
+                    </page>
+                    <page string="Documentos" name="documentos">
+                        <field name="docaem_ids">
+                            <tree editable="bottom" create="True">
+                                <field name="tipo_doc_id" domain="[('categoria', '!=', 'administracion')]"/>
+                                <field name="fecha"/>
+                                <field name="grupal" default="0" invisible="1"/>
+                                <field name="gusto_id" default="gusto.id" invisible="1"/>
+                                <field name="archivo" filename='name' widget="binary"/>
+                                <field name="name" invisible='1'/>
+                                <button name="action_open_file_viewer" string="Ver Archivo" type="object" class="btn-primary"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Vida Laboral" name="vl">
+                          <field name='vcv' filename='fichero' string='vista previa' widget='pdf_viewer'/>
+                    </page>
+                    <page string="CV" name="cv">
+                          <field name='vlab' filename='fichero' string='vista previa' widget='pdf_viewer'/>
+                    </page>
+                    <page string="Perfiles" name="perfiles">
+                          <field name="perfil_ocupacion_ids">
+                              <tree editable="bottom">
+                                  <field name='participante_id' readonly="1" invisible="1"/> 
+                                  <field name='perfiles_id'/> 
+                              </tree>
+                          </field>
+                    </page>
+                    <page string="Eiquetas" name="etiquetas">
+                            <field name="tag_ids">
+                                <tree editable="bottom" >
+                                    <field name="tipo_tag_id"/>    
+                                    <field name="name"/>
+                                    <field name="tipot_nivel_sino" invisible="1"/>
+                                    <field name="tipot_experiencia" invisible="1"/>
+                                    <field name="nivel" attrs="{'invisible': [('tipot_nivel_sino', '=', False)]}"/>
+                                    <field name="experiencia" attrs="{'invisible': [('tipot_experiencia', '=', False)]}"/>
+                                </tree>
+                            </field>
+                    </page>
+                </notebook>
+            </sheet>
+            <!--
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            -->
+        </form>
+      </field>
+    </record>
+    <!-- 
+    <record model="ir.ui.view" id="gusto.gusto_graph">
+      <field name="name">Gestión Usuarios STO</field>
+      <field name="model">gusto.gusto</field>
+      <field name="arch" type="xml">
+          <graph string="Objetivo por Provincia y Mes" type="bar">
+              <field name="fecha_objetivo" type="date" interval="month"/>
+              <field name="provincia"/>
+              <field name="participante"/>
+              <field name="id" type="count" string="Total Registros"/>
+          </graph>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="gusto.gusto_pivot">
+      <field name="name">Gestión Usuarios STO</field>
+      <field name="model">gusto.gusto</field>
+      <field name="arch" type="xml">
+          <pivot string="Objetivo por Provincia y Mes">
+              
+              <field name="provincia" type="col"/>
+              
+              <field name="fecha_objetivo" type="row" interval="month"/>
+                
+              <field name="q_participante" type="maesure" sum="q_participante" string='PARTICIPANTES STO'/>
+              <field name="q_baja" type="maesure" sum="q_baja"  string='BAJAS STO'/>
+              <field name="q_orientacion" type="maesure" sum="q_orientacion"  string='ORIENTACION'/>
+              
+          </pivot>
+      </field>
+    </record>
+    -->
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_gusto">
+      <field name="name">Gestión de Usuarios STO</field>
+      <field name="res_model">gusto.gusto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

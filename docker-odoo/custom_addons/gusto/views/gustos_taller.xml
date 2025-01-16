@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.taller_list">
+      <field name="name">Taller</field>
+      <field name="model">gusto.taller</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="modalidad"/>
+          <field name="duraccion"/>
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.taller_form">
+      <field name="name">Taller</field>
+      <field name="model">gusto.taller</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+
+              <group>
+
+                  <div class="o_row">
+                  
+                      <field name="name" string="Acción Formativa"/>
+                  
+                </div>
+                <div class="o_row">
+                  
+                     <field name="modalidad"/>
+                  
+                </div>
+                <div class="o_row">
+                  
+                      <field name="duraccion" string="Duración en horas"/>
+                  
+                </div>
+                  
+                
+              </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_taller">
+      <field name="name">Taller</field>
+      <field name="res_model">gusto.taller</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

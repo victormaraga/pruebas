@@ -1,0 +1,76 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.contratos_list">
+      <field name="name">contratos de participantes</field>
+      <field name="model">gusto.contratos</field>
+      <field name="arch" type="xml">
+      
+        <tree create="false"  >
+      
+       
+              <field name="provincia_gusto" group="1"/>
+              <field name="participante_id" group="1"/>
+              <field name="participante_gusto" />
+              <field name="empresa" />
+              <field name="modalidad" />
+              <field name='tipo_contratoss' />
+              <field name="jornada"/>
+              <!--
+              <field name="porcentaje_jornada" sum=''/>
+              -->
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+              
+              <field name="diastrabajado"/>
+              <field name="diascomputable"/>
+
+              <field name="medio"/>
+              
+              <field name="observacion" /> 
+              
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.contratos_form">
+      <field name="name">contratos</field>
+      <field name="model">gusto.contratos</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              
+              <field name="participante_id"/>
+              <field name="participante_gusto"/>
+              <field name="provincia_gusto"/>
+              <field name="empresa"/>
+              <field name="modalidad"/>
+              <field name='tipo_contratoss'/>
+              <field name="jornada"/>
+              <field name="porcentaje_jornada"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+              <field name="diastrabajado"/>
+              <field name="diascomputable"/>
+              <field name="observacion"/>
+             
+              
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_contratos">
+      <field name="name">Contratos de participantes</field>
+      <field name="res_model">gusto.contratos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

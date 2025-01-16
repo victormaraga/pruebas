@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_captacion_experiencialaboral,captacion.experiencialaboral,model_captacion_experiencialaboral,base.group_user,1,1,1,1
+access_captacion_interesesprofesionales,captacion.interesesprofesionales,model_captacion_interesesprofesionales,base.group_user,1,1,1,1
+access_captacion_necesidadesformacionespecifica,captacion.necesidadesformacionespecifica,model_captacion_necesidadesformacionespecifica,base.group_user,1,1,1,1
+access_captacion_objetivoprofesional,captacion.objetivoprofesional,model_captacion_objetivoprofesional,base.group_user,1,1,1,1
+
+
+
+
+access_captacion_procedenciaentrada,captacion.procedenciaentrada,model_captacion_procedenciaentrada,base.group_user,1,1,1,1
+access_captacion_programas,captacion.programas,model_captacion_programas,base.group_user,1,1,1,1
+access_captacion_proyectos,captacion.proyectos,model_captacion_proyectos,base.group_user,1,1,1,1
+

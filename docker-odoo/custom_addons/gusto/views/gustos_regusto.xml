@@ -1,0 +1,163 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.regusto_list">
+      <field name="name">gusto</field>
+      <field name="model">gusto.regusto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="provincia"/>
+          <field name="participante"/>
+          <field name="alta_sto"/>
+          <field name="baja_sto"/>
+          <field name="colectivo"/>
+          <field name="h_orienta" optional="hide"/>
+          <field name="fase_orienta"/>
+          <field name="h_forma" optional="hide"/>
+          <field name="recibi"/>
+          <field name="inicio_inserccion"/>
+          <field name="fin_inserccion"/>
+          <field name="h_fase_inserccion" optional="hide"/>
+          <field name="oi40h"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.regusto_form">
+      <field name="name">gusto</field>
+      <field name="model">gusto.regusto</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <header>
+                      
+                </header>
+                <div class="o_row">
+                    <h1>FICHA DE PARTICIPANTE</h1>
+                </div>
+                <field name="foto_participante" widget="image" class="oe_avatar"/>
+                <div class="o_row">    
+                      <h1>
+                          <div>
+                              <field name='name' class="oe_inline" readonly='1'/><span> - </span><field name='participante' class="oe_inline" readonly='1' />
+                          </div>
+                      </h1>
+                </div>
+                <div class="o_row"> 
+                      <span class="o_form_label o_td_label">
+                          <field name="espacio" readonly="1" class="fw-bold"/>
+                          <b> </b>
+                      </span>   
+                </div>
+                <div class="o_row"> 
+                      <span class="o_form_label o_td_label">
+                          <field name="espacio" readonly="1" class="fw-bold"/>
+                          <b> </b>
+                      </span>   
+                </div>
+                <div class="o_row"> 
+                      <span class="o_form_label o_td_label">
+                          <field name="espacio" readonly="1" class="fw-bold"/>
+                          <b> </b>
+                      </span>   
+                </div>
+                <group>
+                    <group>
+                        
+                        <field name="municipio"/>
+                        <field name="telefono"/>
+                        <field name="correo"/>
+                        <field name="colectivo" readonly="1"/>
+                        <field name="anos_exp"/>
+                        <field name="recibi" readonly="1"/>
+                        
+                    </group>
+                    <group>    
+                        <group>
+                              <field name="alta_sto" readonly="1"/>
+                              <field name="inicio_atencion" readonly="1"/>
+                              <field name="inicio_inserccion"/>
+                        </group>
+                        <group>
+                              <field name="baja_sto" readonly="1"/>
+                              <field name="fin_atencion"/>
+                              <field name="fin_inserccion"/>
+                        </group>
+                        <group>
+                              <field name="h_orienta" readonly="1"/>
+                              <field name="h_forma" readonly="1"/>
+                              <field name="h_fase_inserccion" readonly="1"/>
+                              <field name="fase_orienta" readonly="1"/>
+                              <field name="oi40h"/>
+                              
+                        </group>
+                     </group>
+                </group>  
+                <notebook colspan="5">
+                    <page string="Contratos" name="contratos">
+                          <field name="contratos_ids">
+                              <tree editable="bottom">
+                                <field name='name' readonly="1" invisible="1"/>
+                                <field name='participante_id' readonly="1" invisible="1" />
+                                <field name='empresa'/>
+                                <field name='modalidad'/>
+                                <field name='jornada'/>
+                                <field name='pmc'/>
+                                <field name='porcentaje_jornada'/>
+                                <field name='fecha_inicio'/>
+                                <field name='fecha_fin'/>
+                                <field name='diastrabajado' sum='totaldt'/>
+                                <field name='diascomputable' sum='totaldc' />
+                                <field name='observacion'/> 
+                                <field name="regimen"/>
+                              </tree>
+                          </field>
+                    </page>
+                    <page string="Formaciones" name="formaciones">
+                            
+
+                    </page>
+                    <page string="Vida Labora" name="vida_laboral">
+                          <field name='vlab' filename='fichero' string='vista previa' widget='pdf_viewer'/>
+                    </page>
+                    <page string="CV" name="cv">
+                          <field name='vcv' filename='fichero' string='vista previa' widget='pdf_viewer'/>
+                    </page>
+                    <page string="Perfiles" name="perfiles">
+                          <field name="perfil_ocupacion_ids">
+                              <tree editable="bottom">
+                                  <field name='participante_id' readonly="1" invisible="1"/> 
+                                  <field name='perfiles_id'/> 
+                              </tree>
+                          </field>
+                    </page>
+                </notebook>
+
+                <!--
+                <field name="sector_ocupacion"/>
+                
+
+                <field name="pt_nombre"/>
+                <field name="pt_apellido1"/>
+                <field name="pt_apellido2"/>
+                -->
+              
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_regusto">
+      <field name="name">gusto</field>
+      <field name="res_model">gusto.regusto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

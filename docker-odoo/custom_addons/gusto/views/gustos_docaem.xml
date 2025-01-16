@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+
+<record id="view_gusto_docaem_tree" model="ir.ui.view">
+    <field name="name">gusto.docaem.tree</field>
+    <field name="model">gusto.docaem</field>
+    <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="id"/>
+            <field name="taller_id_id"/>
+            <field name="taller_id_sto"/>
+            <field name="taller_id"/>
+            <field name="gusto_id_id"/>
+            <field name="gusto_id"/>
+            <field name="tipo_doc_id" domain="[('categoria', '!=', 'administracion')]"/>
+            <field name="fecha"/>
+            <field name="grupal" invisible="1"/>
+            <field name="name"/>
+            <field name="fecha"/>
+            <field name="horas"/>
+            <field name="archivo" widget="binary"/>
+            <field name="archivo_nombre"/>
+            
+        </tree>
+    </field>
+</record>
+   <record model="ir.actions.act_window" id="gusto.action_docaem">
+      <field name="name">Documentos</field>
+      <field name="res_model">gusto.docaem</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

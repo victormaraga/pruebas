@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_file_viewer_form" model="ir.ui.view">
+        <field name="name">gusto.file.viewer.form</field>
+        <field name="model">gusto.docaem</field>
+        <field name="arch" type="xml">
+            <form string="Visor de Archivo" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <field name="archivo" filename="archivo_nombre" widget="pdf_viewer"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

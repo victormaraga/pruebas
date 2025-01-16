@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+     <!--   MENU GENERAL   -->
+    <menuitem name="GUSTO STO" id="gusto.menu_general_root"/>
+    <menuitem name="Configuración STO" id="gusto.menu_configuracion_root"/>
+    <menuitem name="Control STO" id="gusto.menu_control_root"/>
+
+            <!-- General Sub menu -->
+    <menuitem name="GUSTO" id="gusto.general_gusto" parent="gusto.menu_general_root" action="gusto.action_gusto"/>
+    <menuitem name="Carga STO" id="gusto.general_cargasto" parent="gusto.menu_general_root" action="gusto.action_gusto"/>
+    <menuitem name="Acciones Formativas" id="gusto.general_accionesformativas" parent="gusto.menu_general_root" action="gusto.action_acciones_formativas"/>
+    <menuitem name="Talleres" id="gusto.general_talleres" parent="gusto.menu_general_root" action="gusto.action_talleres"/>
+    <menuitem name="Contratos" id="gusto.general_contratos" parent="gusto.menu_general_root"/>
+    <menuitem name="Vista general" id="gusto.general_contratos_gen" parent="gusto.general_contratos" action="gusto.action_contratos"/>
+    <menuitem name="Contratos sumados" id="gusto.general_contratos_sum" parent="gusto.general_contratos" action="gusto.action_contratos_sum"/>
+    
+    <menuitem name="Prospectores" id="gusto.general_prospectores" parent="gusto.menu_general_root" action="gusto.action_prospectores"/>
+    
+            <!-- Configuracion Sub menu  -->
+    <menuitem name="Colectivo" id="gusto.conf_colectivo_menu" parent="gusto.menu_configuracion_root" action="gusto.action_colectivo"/>
+    <menuitem name="Accion Formativa" id="gusto.conf_accion_formativa_menu" parent="gusto.menu_configuracion_root" action="gusto.action_accionformativa"/>
+    <menuitem name="Docentes" id="gusto.conf_docentes_menu" parent="gusto.menu_configuracion_root" action="gusto.action_docentes"/>
+    <menuitem name="Prospectores" id="gusto.conf_prospectores_menu" parent="gusto.menu_configuracion_root" action="gusto.action_prospectores"/>
+    <menuitem name="Sector Ocupación" id="gusto.conf_sectoro_menu" parent="gusto.menu_configuracion_root" action="gusto.action_sectorocupacion"/>
+    <menuitem name="Perfil Ocupación" id="gusto.conf_perfilo_menu" parent="gusto.menu_configuracion_root" action="gusto.action_perfilocupacion"/>
+    <menuitem name="Jornadas" id="gusto.conf_jornada_menu" parent="gusto.menu_configuracion_root" action="gusto.action_jornada"/>
+    <menuitem name="Tipo documento" id="gusto.conf_tipo_documento_menu" parent="gusto.menu_configuracion_root" action="gusto.action_tipo_doc"/>
+    <menuitem name="Documentos" id="gusto.conf_documentos_menu" parent="gusto.menu_configuracion_root" action="gusto.action_docaem"/>
+    <menuitem name="Tallores" id="gusto.conf_general_talleres" parent="gusto.menu_configuracion_root" action="gusto.action_talleres"/>
+    <menuitem name="No vale Tipo documento" id="gusto.conf_tipo_documento_no_menu" parent="gusto.menu_configuracion_root" action="gusto.action_tipo_documento"/>
+
+    
+    <menuitem name="Tag" id="gusto.conf_tag_menu" parent="gusto.menu_control_root" action="gusto.action_tag"/>
+    <menuitem name="Tipo Tag" id="gusto.conf_tipo_tag_menu" parent="gusto.menu_control_root" action="gusto.action_tipo_tag"/>
+    <menuitem name="Categoria Tag" id="gusto.conf_categoria_tag_menu" parent="gusto.menu_control_root" action="gusto.action_categoria_tag"/>
+
+    <menuitem name="Actualiza accionesf" id="gusto.conf_impor_accionesf_menu" parent="gusto.menu_control_root" action="gusto.action_importcsv_accionesf_wizard"/>
+<!--
+    <menuitem name="Actualiza Telefonos" id="gusto.conf_impor_telefono_menu" parent="gusto.menu_control_root" action="gusto.action_importcsv_telefono_wizard"/>
+    <menuitem name="Tipo Contrato SS" id="gusto.conf_impor_tipocontratoss_menu" parent="gusto.menu_control_root" action="gusto.action_importcsv_tipocontratoss_wizard"/>
+    <menuitem name="Etiquetas" id="gusto.conf_impor_etiquetas_menu" parent="gusto.menu_control_root" action="gusto.action_importcsv_etiquetas_wizard"/>
+-->
+    <menuitem name="Tag" id="gusto.conf_tag_menu" parent="gusto.menu_control_root" action="gusto.action_tag"/>
+    <menuitem name="Tipo Tag" id="gusto.conf_tipo_tag_menu" parent="gusto.menu_control_root" action="gusto.action_tipo_tag"/>
+    <menuitem name="Categoria Tag" id="gusto.conf_categoria_tag_menu" parent="gusto.menu_control_root" action="gusto.action_categoria_tag"/>
+
+    <menuitem name="Tipo Documentos" id="gusto.conf_tipo_doc_menu" parent="gusto.menu_control_root" action="gusto.action_tipo_doc"/>
+    <menuitem name="Documentos" id="gusto.conf_docaem_menu" parent="gusto.menu_control_root" action="gusto.action_docaem"/>
+
+    <menuitem name="Tipo Formacion" id="gusto.conf_tipo_formacion_menu" parent="gusto.menu_control_root" action="gusto.action_tipo_formacion"/>
+    <menuitem name="Formaciones" id="gusto.conf_formaciones_menu" parent="gusto.menu_control_root" action="gusto.action_formaciones"/>
+
+    <menuitem name="Historico STO" id="gusto.conf_historico:sto_menu" parent="gusto.menu_control_root" action="gusto.action_historico_sto"/>
+
+    <menuitem id="menu_notify_message" name="Mensajes de Notificación" parent="gusto.menu_control_root" action="action_notify_message"/>
+
+  
+    <menuitem id="menu_gusto_talleres_import" name="Importar Talleres" parent="gusto.menu_configuracion_root" action="action_gusto_talleres_import_wizard"/>
+    
+
+  </data>
+</odoo> 

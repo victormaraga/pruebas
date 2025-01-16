@@ -1,0 +1,99 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.prospectores_list">
+      <field name="name">prospectores</field>
+      <field name="model">gusto.prospectores</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="es_formador" widget="boolean_toggle"/>
+          <field name="es_integrador" widget="boolean_toggle"/>
+          <field name="es_externo" widget="boolean_toggle"/>
+          <!--
+          <field name="document_ids"/>
+          -->
+
+          
+        </tree>
+      </field>
+    </record>
+ 
+    <record model="ir.ui.view" id="gusto.prospectores_form">
+      <field name="name">prospectores</field>
+      <field name="model">gusto.prospectores</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <header>
+                <span>   </span>
+              </header>
+              <group>
+                  <field name="name"/>
+                  <field name="es_formador" widget="boolean_toggle"/>
+                  <field name="es_integrador" widget="boolean_toggle"/>
+                  <field name="es_externo" widget="boolean_toggle"/>
+                  <field name="parent_id" invisible="1"/>
+                  <field name="integradores_ids" attrs="{'invisible': [('es_integrador', '=', True)]}"  widget="many2many_tags"/>
+
+
+                  <notebook colspan="2">
+                    <page string="Acciones" name="acciones">
+                          <field name="acciones_formativas_ids">
+                              <tree editable="bottom">
+                                  <field name="name"/>
+                                  <field name="nexp" invisible="1"/>
+                                  
+                                  <field name="country_id" invisible="1"/>
+                                  
+                                  <field name="provincia_ids" widget="many2many_tags"/>
+                                  <field name="inicio"/>
+                                  <field name="fin"/>
+                                  <field name="accion"/>
+                                  <field name="modalidad"/>
+                                  <field name="participantes"/>
+                                  <field name="prospector_id"/>
+                                  
+                              </tree>
+                          </field>    
+                    </page>
+                    <page string="Contratos" name="contratos">
+                          <!--
+                          <field name="document_ids"/>
+                          -->
+                          <field name="docaem_ids">
+                            <tree editable="bottom" create="True">
+                                <field name="tipo_doc_id" domain="[('categoria', '=', 'administracion')]"/>
+                                <field name="fecha"/>
+                                <field name="grupal" invisible="1"/>
+                                <field name="name"/>
+                                <field name="archivo" widget="binary"/>
+                                <field name="archivo_nombre"/>
+                            </tree>
+                        </field>
+                    </page>
+                   </notebook>
+              </group>
+              
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_prospectores">
+      <field name="name">prospectores</field>
+      <field name="res_model">gusto.prospectores</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

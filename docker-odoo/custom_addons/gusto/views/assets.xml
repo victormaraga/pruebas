@@ -1,0 +1,12 @@
+<odoo>
+<data>
+    <template id="finaliza_accion_assets_backend" inherit_id="web.assets_backend" name="Finaliza Accion Widget Assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/gusto/static/src/js/finaliza_accion_widget.js"/>
+            <link rel="stylesheet" type="text/css" href="/gusto/static/src/css/finaliza_accion_widget.css"/>
+        </xpath>
+    </template>
+</data>
+</odoo>
+
+

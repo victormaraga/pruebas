@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_form_gusto_talleres_creation" model="ir.ui.view">
+        <field name="name">ttalleres.creation.form</field>
+        <field name="model">gusto.talleres</field>
+        <field name="arch" type="xml">
+            <form string="Crear Taller">
+                <sheet>
+                    <group>
+                      
+                        <field name="gusto_id_id" string='ID' invisible='1' readonly="1"/>
+                        <field name="gusto_id" string='DNI/NIE' invisible='1' readonly="1"/>
+                        <field name="gusto_name" readonly="1"/>
+                        <field name="provincia_id" invisible='1' readonly="1"/>
+                        <field name="name"/>
+                        <field name="modalidad" readonly="1"/>
+                        <field name="tipo_gusto" domain="[('name', 'ilike', 'INDIVIDUAL')]"/>
+                    </group>
+                    <group>    
+                        <field name="fec_inicio"/>
+                        <field name="fec_fin"/>
+                        <field name="horas"/>
+                        <field name="turno"/>
+                        <field name="aula"/>
+                        
+                        <field name="pt_nombre"/>
+                        <field name="pt_apellido1"/>
+                        <field name="pt_apellido2"/>
+                        <!--
+                        <field name="docaem_ids"/>
+                        <field name="participantes_talleres_ids"/>
+                        
+                        <field name="docaem_ids">
+                            <tree editable="bottom" create="True">
+                                <field name="gusto_id" default="gusto.id" string='DNI' context="{'show_field': ['gusto.name', 'gusto.participante']}" />
+                                <field name="participante_gusto" />
+                                <field name="tipo_doc_id" domain="[('categoria', '!=', 'administracion')]"/>
+                                <field name="fecha"/>
+                                <field name="taller_id" default="taller.id" invisible="1"/>
+                                <field name="horas" default="taller_id.horas"/>
+                                <field name="grupal" default="0" invisible="1"/>
+                                
+                                <field name="archivo" filename='archivo_nombre' widget="binary"/>
+                                <field name="archivo_nombre" invisible='1'/>
+                                
+                                
+                                <button name="action_open_file_viewer" string="Ver Archivo" type="object" class="btn-primary"/>
+                               
+                            </tree>
+                        </field>
+                         -->
+                         <!--
+                                <field name="archivo_nombre" string="Nombre del Archivo"/>
+                                <field name="archivo" string="Ruta del Archivo"/>
+                                 -->
+                    </group>
+                    <footer>
+                        <button type="object" name="create" string="Crear" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="gusto_partners_tree" model="ir.ui.view">
+        <field name="name">gusto.candidatos.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_type']" position="after">
+                <group>
+                    <field name="es_candidato"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="gusto.action_candidatos" model="ir.actions.act_window">
+        <field name="name">Candidatos</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_es_candidato': True}</field>
+        <field name="domain">[('es_candidato', '=', True)]</field>
+    </record>
+    
+</odoo>

@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+
+<record id="view_gusto_datos_tree" model="ir.ui.view">
+    <field name="name">gusto.datos.tree</field>
+    <field name="model">gusto.datos</field>
+    <field name="arch" type="xml">
+        <!--  -->
+        <tree   editable="top" create="false" delete="false"  > 
+            <field name="concepto" />
+            <field name="provincia" readonly="1"/>
+            <field name="real" readonly="1"/>
+            <field name="prev" />
+            <field name="total" readonly="1"/>
+        </tree>
+    </field>
+</record>
+<record id="view_gusto_datos_pivot" model="ir.ui.view">
+    <field name="name">gusto.datos.pivot</field>
+    <field name="model">gusto.datos</field>
+    <field name="arch" type="xml">
+        <pivot string="Datos de Gustos">
+            <!-- Agrupación por provincia -->
+            <field name="provincia" type="col"/>
+            <!-- Concepto como filas -->
+            <field name="concepto" type="row" />
+            <!-- Campos de valores a analizar -->
+            <field name="real" type="measure"/>
+            <field name="prev" type="measure"/>
+            <field name="total" type="measure"/>
+        </pivot>
+    </field>
+</record>
+   <record model="ir.actions.act_window" id="gusto.action_datos">
+      <field name="name">Situacion de participantes</field>
+      <field name="res_model">gusto.datos</field>
+      <field name="view_mode">pivot,tree</field>
+    </record>
+  </data>
+</odoo>

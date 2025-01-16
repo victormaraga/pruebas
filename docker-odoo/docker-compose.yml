@@ -1,0 +1,26 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:16.0
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:8069:8069"
+    volumes:
+      - data:/var/lib/odoo
+      - ./custom_addons:/mnt/extra-addons
+      - ./config/odoo.conf:/etc/odoo/odoo.conf
+        # - ./addons:/docker-odoo-odoo-1:/usr/lib/python3/dist-packages/odoo/addons
+    environment:
+      - ADDONS_PATH=/mnt/extra-addons
+  postgres:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - db:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+volumes:
+  data:
+  db:

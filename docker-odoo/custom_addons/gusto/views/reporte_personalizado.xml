@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+        <!-- Vista Tree -->
+    <record id="view_reporte_personalizado_tree" model="ir.ui.view">
+        <field name="name">Reporte Personalizado Tree</field>
+        <field name="model">gusto.reporte.personalizado</field>
+        <field name="arch" type="xml">
+            <tree string="Reporte Personalizado">
+                <field name="concepto"/>
+                <field name="REAL"/>
+                <field name="PREV"/>
+                <field name="TOTAL"/>
+                <button name="imprimir_reporte" string="Imprimir PDF" type="object" class="btn-primary"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="view_reporte_personalizado_form" model="ir.ui.view">
+        <field name="name">Reporte Personalizado Form</field>
+        <field name="model">gusto.reporte.personalizado</field>
+        <field name="arch" type="xml">
+            <form string="Reporte Personalizado">
+                <sheet>
+                    <group>
+                        <field name="concepto"/>
+                        <field name="REAL"/>
+                        <field name="PREV"/>
+                        <field name="TOTAL"/>
+                    </group>
+                    <footer>
+                        <button name="imprimir_reporte" string="Imprimir PDF" type="object" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción de Informe -->
+    <record id="reporte_personalizado_pdf" model="ir.actions.report">
+        <field name="name">Reporte Personalizado</field>
+        <field name="model">gusto.reporte.personalizado</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gusto.reporte_personalizado_pdf</field>
+        <field name="file">Reporte Personalizado</field>
+        <field name="print_report_name">"Reporte_Personalizado"</field>
+    </record>
+
+    <!-- Plantilla QWeb del Informe -->
+    <template id="reporte_personalizado_pdf">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Reporte Personalizado</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>REAL</th>
+                            <th>PREV</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="data['reporte']" t-as="row">
+                            <tr>
+                                <td><t t-esc="row['concepto']"/></td>
+                                <td><t t-esc="row['REAL']"/></td>
+                                <td><t t-esc="row['PREV']"/></td>
+                                <td><t t-esc="row['TOTAL']"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+  </data>
+</odoo>

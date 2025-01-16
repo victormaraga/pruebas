@@ -1,0 +1,128 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.acciones_formativas_list">
+      <field name="name">Acciones formativas</field>
+      <field name="model">gusto.acciones.formativas</field>
+      <field name="arch" type="xml">
+        <tree >
+          <field name="id_sto"/>
+          <field name="name"/>
+          <field name="nexp"/>
+          <field name="accion"/>
+          <field name="horas"/>
+          <field name="modalidad"/>
+          <field name="country_id" invisible="1"/>
+          <field name="provincia_ids" widget="many2many_tags"/>
+          <!--
+          <field name="prev_inicio" />
+          <field name="prev_fin"/>
+          -->
+          
+          <field name="inicio" />
+          <field name="fin"  />
+          <field name="n_part_prev"/>
+          
+          <field name="n_part_real"/>
+          <!--
+          <field name="participantes"/>
+          -->
+          <field name="presupuesto_solicitado" groups="gusto.group_gusto_coordinadores_integracion"/>
+          <field name="coste" groups="gusto.group_gusto_coordinadores_integracion"/>
+          <field name="pendiente_justificar" groups="gusto.group_gusto_coordinadores_integracion"/>
+          <field name="prospector_id"/>
+          <field name="prospector_factura"/>
+          <field name="validacion"/>
+          <field name="docente3" widget="many2many_tags"/>
+          <field name="estado"  />
+          <field name="recurso"  />
+          <field name="observaciones"/>
+         
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.acciones_formativas_form">
+      <field name="name">Acciones formativas</field>
+      <field name="model">gusto.acciones.formativas</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                  
+                  <field name="name"/>
+                  <field name="nexp"/>
+                  <field name="modalidad"/> 
+                  <field name="country_id" invisible="1"/>
+                  <field name="provincia_ids" widget="many2many_tags"/>
+                  <field name="inicio" attrs="{'invisible': [('inicio', '=', False)]}"/>
+                  <field name="prev_inicio" attrs="{'invisible': [('inicio', '!=', False)]}"/>
+                  <field name="fin" attrs="{'invisible': [('fin', '=', False)]}"/>
+                  <field name="prev_fin" attrs="{'invisible': [('prev_fin', '=', False)]}"/>
+                  <field name="accion"/>
+                  <!--
+                  <field name="participantes"/>
+                  -->
+                  <field name="n_part_prev"/>
+                  <field name="n_part_real"/>
+                  <field name="prospector_id"/>
+                  <field name="recurso"  />
+                  <field name="presupuesto_solicitado" groups="gusto.group_gusto_coordinadores_integracion" />
+                  
+                  <field name="coste"  groups="gusto.group_gusto_coordinadores_integracion"/>
+                  <field name="pendiente_justificar" groups="gusto.group_gusto_coordinadores_integracion" />
+                  <field name="observaciones"/>
+              </group>
+              <notebook colspan="3">
+                    <page string="Alumnos" name="alumnos" >
+                          <field name="participante_ids">
+                            <tree >
+                              <field name="participante"/>
+                              <field name="name"/>
+                              <field name="finaliza_accion"/>
+
+                            </tree>
+                          </field>
+                    </page>
+                    <page string="Docentes" name="docentes">
+                          <field name="docente3" />
+                    </page>
+                    <page string="Documentos" name="documentos">
+                          <field name="docaem_ids">
+                            <tree editable="bottom" create="True">
+                                <field name="gusto_id" string='PARTICIPANTE'/>
+                                <field name="tipo_doc_id" domain="[('categoria', '!=', 'administracion')]"/>
+                                <field name="fecha"/>
+                                <field name="grupal" default="0" invisible="1"/>
+                                <field name="archivo" filename='name' widget="binary"/>
+                                <field name="name" invisible='1'/>
+                                <button name="action_open_file_viewer" string="Ver Archivo" type="object" class="btn-primary"/>
+                                
+                            </tree>
+                        </field>
+                    </page>
+              </notebook>
+            </sheet>
+            <!--
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            -->
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_acciones_formativas">
+      <field name="name">Acciones formativas</field>
+      <field name="res_model">gusto.acciones.formativas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

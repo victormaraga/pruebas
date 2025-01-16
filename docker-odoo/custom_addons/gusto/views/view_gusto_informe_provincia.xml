@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+    <record id="view_gusto_informe_provincia_tree" model="ir.ui.view">
+        <field name="name">gusto.informe.provincia.tree</field>
+        <field name="model">gusto.informe.provincia</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="provincia"/>
+                <field name="total"/>
+                <field name="orientacion_finalizada"/>
+                <field name="formacion_finalizada"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_gusto_informe_provincia" model="ir.actions.act_window">
+        <field name="name">Informe por Provincia</field>
+        <field name="res_model">gusto.informe.provincia</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{'default_cargar_datos': True}</field>
+    </record>
+  </data>
+</odoo>

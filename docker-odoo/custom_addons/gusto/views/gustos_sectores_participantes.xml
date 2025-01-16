@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.sectores_participantes_list">
+      <field name="name">sectores_participantes</field>
+      <field name="model">gusto.sectores_participantes</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="participante_id"/>
+          <field name="sectores_id"/>
+
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.sectores_participantes_form">
+      <field name="name">sectores_participantes</field>
+      <field name="model">gusto.sectores_participantes</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <field name="participante_id"/>
+              <field name="sectores_id"/>
+
+              
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_sectores_participantes">
+      <field name="name">sectores_participantes</field>
+      <field name="res_model">gusto.sectores_participantes</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

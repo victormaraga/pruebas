@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gusto.docentes_list">
+      <field name="name">docentes</field>
+      <field name="model">gusto.docentes</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gusto.docentes_form">
+      <field name="name">docentes</field>
+      <field name="model">gusto.docentes</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <field name="name"/>
+
+              
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gusto.action_docentes">
+      <field name="name">docentes</field>
+      <field name="res_model">gusto.docentes</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Vista tipo Tree para mostrar los resultados -->
+        <record id="view_gusto_gusto_sql_tree" model="ir.ui.view">
+            <field name="name">gusto.gusto.sql.tree</field>
+            <field name="model">gusto.gusto.sql</field>
+            <field name="arch" type="xml">
+                <tree string="Resultados Gusto SQL">
+
+                    <field name="q_participante"/>
+                    <field name="q_baja"/>
+                    <field name="q_orientacion"/>
+                    <field name="q_persona_atendida"/>
+                    <field name="q_incentivo"/> 
+                    <field name="q_oi40h"/> 
+                    <field name="q_insertados"/>  
+                    <field name="q_prioritarios"/>
+                    <field name="q_isosinoi"/>    
+                    <field name="q_isoconoi"/>    
+                    <field name="provincia"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista tipo Form para detalles (opcional) -->
+        <record id="view_gusto_gusto_sql_form" model="ir.ui.view">
+            <field name="name">gusto.gusto.sql.form</field>
+            <field name="model">gusto.gusto.sql</field>
+            <field name="arch" type="xml">
+                <form string="Detalle Gusto SQL">
+                    <sheet>
+                        <group>
+                            <field name="q_participante"/>
+                            <field name="q_baja"/>
+                            <field name="q_orientacion"/>
+                            <field name="q_persona_atendida"/>
+                            <field name="q_incentivo"/> 
+                            <field name="q_oi40h"/> 
+                            <field name="q_insertados"/>  
+                            <field name="q_prioritarios"/>
+                            <field name="q_isosinoi"/>    
+                            <field name="q_isoconoi"/>    
+                            <field name="provincia"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para abrir la vista -->
+        <record id="gusto.action_gusto_sql" model="ir.actions.act_window">
+            <field name="name">Resultados Gusto SQL</field>
+            <field name="res_model">gusto.gusto.sql</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

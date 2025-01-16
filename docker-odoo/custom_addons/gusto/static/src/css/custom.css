@@ -1,0 +1,86 @@
+/* Estado 'NO INICIADA' - Color naranja */
+.estado-no-iniciada .o_field_widget {
+    color: #1F2107 !important;
+    background-color: #F7F396 !important;
+    text-align: center !important;
+}
+
+/* Estado 'EN CURSO' - Color negro */
+.estado-en-curso .o_field_widget {
+    color: #EEE !important;
+    background-color: #D18A10 !important;
+    text-align: center !important;
+    
+}
+
+/* Estado 'FINALIZADA' - Color verde */
+.estado-finalizada .o_field_widget {
+    color: #121212 !important;
+    background-color: #aced97 !important;
+    text-align: center !important;
+}
+
+/* Fase ATENDIDA - FINALIZADA - Color verde */
+.fase-atendida  {
+    width: auto !important;
+    height: 150px;
+    border: 2px solid #1e1f1d;
+    margin: 20px auto;
+    position: relative;
+    
+}
+.fase-inserccion {
+    width: auto;
+    height: 150px;
+    border: 2px solid #1e1f1d;
+    margin: 20px auto;
+    position: relative;
+}
+
+.lab-fase {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    background-color: white;
+    padding: 5px;
+    font-weight: bold;
+}
+.fase-finalizada {
+    background-color: #5EBE3F !important;
+    border: 2px solid #245e11;
+}
+.frm-fase-atencion{
+    border: 1px solid #c9c9c9;
+    padding-left: 5px;
+    border-color: #c9c9c9;
+
+    
+}
+.frm-fase-inserccion{
+    border: 1px solid #c9c9c9;
+    padding-left: 5px;
+
+}
+.frm_dias_trabajados {
+    float:right;
+    padding-right: 90px;
+}
+.frm_horas {
+    float:left;
+    padding-left: 45px;
+}
+.frm_accion{
+    border: 1px solid #b9c2cb;
+    margin-top:4px;
+    margin-bottom:4px;
+    
+}
+
+
+.etiqueta{
+    background-color:#71639e;
+    color:#fff;
+    padding:3px;
+    border-radius: 3px;
+
+}

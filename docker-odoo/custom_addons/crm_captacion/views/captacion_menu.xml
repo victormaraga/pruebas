@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+   
+    <!-- Top menu item -->
+
+    
+    
+
+   
+    <!-- Menu Captacion -->
+    <menuitem name="CRM Captacion" id="captacion_menu_root"/>
+        <!-- Submenu Captacion -->
+    <menuitem name="Proyectos" id="capcacion_cap_proyectos" parent="captacion_menu_root"
+              action="captacion_action_proyectos"/>
+    <menuitem name="Participantes" id="capcacion_cap_participantes" parent="captacion_menu_root"
+              action="captacion_action_participantes"/>
+    
+
+
+
+    <!-- Menu Configuracion -->
+    <menuitem name="CRM Configuracion" id="captacion_cfg_menu_root"/>
+        <!-- Submenu Configuracion -->
+    <menuitem name="Experiencia Laboral" id="capcacion_cfg_experiencialaboral" parent="captacion_cfg_menu_root"
+              action="captacion_action_experiencialaboral"/>
+    <menuitem name="Intereses profesionales" id="capcacion_cfg_interesesprofesionales" parent="captacion_cfg_menu_root"
+              action="captacion_action_interesesprofesionales"/>
+    <menuitem name="Necesidades Formacion Especifica" id="capcacion_cfg_necesidadesformacionespecifica" parent="captacion_cfg_menu_root"
+              action="captacion_action_necesidadesformacionespecifica"/>
+    <menuitem name="Objetivo profesional" id="capcacion_cfg_objetivoprofesional" parent="captacion_cfg_menu_root"
+              action="captacion_action_objetivoprofesional"/>
+
+    
+  </data>
+</odoo>

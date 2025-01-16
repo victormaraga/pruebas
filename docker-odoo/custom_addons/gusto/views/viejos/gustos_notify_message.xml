@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_notify_message_form" model="ir.ui.view">
+        <field name="name">notify.message.form</field>
+        <field name="model">gusto.notify.message</field>
+        <field name="arch" type="xml">
+            <form string="Mensaje de Notificación">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="message"/>
+                        <field name="send_date"/>
+                        <field name="expiration_date"/>
+                        <field name="all_users"/>
+                        <field name="target_users" attrs="{'invisible': [('all_users', '=', True)]}"/>
+                        <field name="auto_close_sessions"/>
+                        <field name="close_sessions_date" attrs="{'invisible': [('auto_close_sessions', '=', False)]}"/>
+                    </group>
+                    <footer>
+                        <button name="send_message" type="object" string="Enviar" class="btn-primary"/>
+                        <button name="close_sessions" type="object" string="Cerrar Sesiones" class="btn-danger"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_notify_message" model="ir.actions.act_window">
+        <field name="name">Notificación de Mensajes</field>
+        <field name="res_model">gusto.notify.message</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<!--    CAMBIARLO A MENU Y SOLO VISIBLE PARA EL ADMINISTRADOR -->
+    
+</odoo>

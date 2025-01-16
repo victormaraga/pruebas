@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <record id="gusto_graph_cumulative" model="ir.ui.view">
+        <field name="name">gusto_graph_cumulative</field>
+        <field name="model">gusto.gusto</field>
+        <field name="arch" type="xml">
+            <graph string="Registros Acumulados con Fecha Objetivo">
+                <!-- 
+                <field name="provincia" type="row"/>
+                 -->
+                <field name="fecha_objetivo" type="col" interval="day" grouped="True"/>
+                <field name="q_participante" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <!-- Acción para la vista Graph 2 -->
+    <record id="action_gusto_graph_cumulative" model="ir.actions.act_window">
+        <field name="name">Contratos acumulados cumplen 120 dias</field>
+        <field name="res_model">gusto.gusto</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="gusto_graph_cumulative"/>
+        <field name="domain">[('fecha_objetivo', '!=', False)]</field>
+    </record>
+
+
+    </data>
+</odoo>

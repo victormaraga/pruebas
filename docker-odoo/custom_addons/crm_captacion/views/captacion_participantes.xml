@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="captacion_participantes_list">
+      <field name="name">Listado Participantes</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellido1"/>
+          <field name="apellido2"/>
+          <field name="company_ids"/>
+          <field name="proyectos_ids"/>
+          <field name="programas_ids"/>
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="captacion_participantes_form">
+      <field name="name">Formulario Listado Participantes</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                  <field name="nombre"/>
+                  <field name="apellido1"/>
+                  <field name="apellido2"/>
+                  <field name="company_ids"/>
+                  <field name="proyectos_ids"/>
+                  <field name="programas_ids"/>
+              </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="captacion_action_participantes">
+      <field name="name">Listado Participantes</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="captacion_participantes_list"/>
+    </record>
+
+  </data>
+</odoo>

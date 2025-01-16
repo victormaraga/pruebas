@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        <record id="gusto_objetivos_tree" model="ir.ui.view">
+            <field name="name">gusto.objetivos.tree</field>
+            <field name="model">gusto.gusto</field>
+            <field name="arch" type="xml">
+                <tree create="false" delete="false"  > <!-- editable="top" create="false" delete="false" <field name="total" readonly="1"/> > -->
+                    <field name="name" readonly="1"/>
+                    <field name="provincia" readonly="1"/>
+                    <field name="participante" readonly="1"/>
+                    <field name="fecha_objetivo" readonly="1"/>
+                    
+                </tree>
+            </field>
+        </record>
+        <!-- 
+        <record id="gusto_objetivos_graph" model="ir.ui.view">
+            <field name="name">gusto.objetivos.graph</field>
+            <field name="model">gusto.gusto</field>
+            <field name="arch" type="xml">
+                <graph string="Objetivo por Provincia y Mes" type="bar">
+                    <field name="fecha_objetivo" type="date" interval="month"/>
+                    <field name="provincia"/>
+                    <field name="participante"/>
+                    <field name="id" type="count" string="Total Registros"/>
+                </graph>
+            </field>
+        </record>
+        
+        <record id="gusto_objetivos_graph" model="ir.ui.view">
+            <field name="name">gusto.objetivos.graph</field>
+            <field name="model">gusto.gusto</field>
+            <field name="arch" type="xml">
+                <graph string="Estadísticas de Fecha Objetivo">
+                <field name="provincia" type="row"/>
+                <field name="fecha_objetivo" interval="month" type="col"/>
+                <field name="id" type="measure" widget="count"/>
+            </graph>
+            </field>
+        </record>
+        -->
+        <record id="gusto_objetivos_graph" model="ir.ui.view">
+        <field name="name">gusto.objetivos.graph</field>
+        <field name="model">gusto.gusto</field>
+        <field name="arch" type="xml">
+            <graph string="Registros Acumulados con Fecha Objetivo">
+                <!-- 
+                <field name="provincia" type="row"/>
+                 -->
+                <field name="fecha_objetivo" type="col" interval="day"/>
+                <field name="q_participante" type="measure" />
+            </graph>
+        </field>
+    </record>
+        <record id="gusto_objetivos_pivot" model="ir.ui.view">
+            <field name="name">gusto.objetivos.pivot</field>
+            <field name="model">gusto.gusto</field>
+            <field name="arch" type="xml">
+                <pivot string="Objetivo por Provincia y Mes">
+                    <!-- Agrupación por provincia -->
+                    <field name="provincia" type="col"/>
+                    <!-- Concepto como filas -->
+                    <field name="fecha_objetivo" type="row" interval="month"/>
+                    <!-- Campos de valores a analizar -->
+                    
+                </pivot>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="gusto.action_objetivos">
+            <field name="name">Fecha cumplen contratos con 120 dias computable</field>
+            <field name="res_model">gusto.gusto</field>
+            <field name="view_mode">graph,tree</field>
+            <field name="domain">[('fecha_objetivo', '!=', False)]</field>
+            <field name="view_id" ref="gusto_objetivos_graph"/>
+        </record>
+
+    </data>
+</odoo>

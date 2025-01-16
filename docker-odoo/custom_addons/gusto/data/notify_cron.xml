@@ -1,0 +1,19 @@
+<odoo>
+    <record id="ir_cron_notify_message_send" model="ir.cron">
+        <field name="name">Enviar Mensajes Programados</field>
+        <field name="model_id" ref="model_gusto_notify_message"/>
+        <field name="state">code</field>
+        <field name="code">model.send_message()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+
+    <record id="ir_cron_notify_message_close_sessions" model="ir.cron">
+        <field name="name">Cerrar Sesiones Programadas</field>
+        <field name="model_id" ref="model_gusto_notify_message"/>
+        <field name="state">code</field>
+        <field name="code">model.close_sessions()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+</odoo>

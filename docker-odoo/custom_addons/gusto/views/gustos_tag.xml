@@ -1,0 +1,24 @@
+<odoo>
+  <data>
+
+<record id="view_gusto_tag_tree" model="ir.ui.view">
+    <field name="name">gusto.tag.tree</field>
+    <field name="model">gusto.tag</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="tipo_tag_id"/>
+            <field name="name"/>
+            <field name="tipot_nivel_sino" invisible="1"/>
+            <field name="tipot_experiencia" invisible="1"/>
+            <field name="nivel" attrs="{'invisible': [('tipot_nivel_sino', '=', False)]}"/>
+            <field name="experiencia" attrs="{'invisible': [('tipot_experiencia', '=', False)]}"/>
+        </tree>
+    </field>
+</record>
+   <record model="ir.actions.act_window" id="gusto.action_tag">
+      <field name="name">Tag</field>
+      <field name="res_model">gusto.tag</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

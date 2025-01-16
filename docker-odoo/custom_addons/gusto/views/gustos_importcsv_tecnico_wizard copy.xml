@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_gusto_importcsv_tecnico_wizard_form" model="ir.ui.view">
+        <field name="name">gusto.importcsv.tecnico.wizard.form</field>
+        <field name="model">gusto.importcsv.tecnico.wizard</field>
+        <field name="arch" type="xml">
+            <form string="CSV Update Wizard">
+                <group>
+                    <field name="csv_file" filename="csv_filename"/>
+                    <field name="csv_record_count" readonly="1"/>
+                    <field name="update_needed_count" readonly="1"/>
+                    <field name="no_counter" readonly="1"/>
+                    <field name="datocsv" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Process CSV" type="object" name="process_csv" class="btn-primary"/>
+                    <button string="Update Records" type="object" name="update_records" class="btn-success"/>
+                    <button string="Cancel" type="object" name="cancel_update" class="btn-secondary"/>
+                    <button string="Exit" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="gusto.action_importcsv_tecnico_wizard" model="ir.actions.act_window">
+        <field name="name">CSV Update Wizard</field>
+        <field name="res_model">gusto.importcsv.tecnico.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
